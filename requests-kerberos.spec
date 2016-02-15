@@ -4,7 +4,7 @@
 #
 Name     : requests-kerberos
 Version  : 0.7.0
-Release  : 1
+Release  : 2
 URL      : https://pypi.python.org/packages/source/r/requests-kerberos/requests-kerberos-0.7.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/r/requests-kerberos/requests-kerberos-0.7.0.tar.gz
 Summary  : A Kerberos authentication handler for python-requests
