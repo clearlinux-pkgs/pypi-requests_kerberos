@@ -4,19 +4,21 @@
 #
 Name     : requests-kerberos
 Version  : 0.12.0
-Release  : 13
+Release  : 14
 URL      : https://files.pythonhosted.org/packages/14/61/85737ebe1e65cd4bf023d9e4610df70851bd7638e003b81a44a9b901feae/requests-kerberos-0.12.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/14/61/85737ebe1e65cd4bf023d9e4610df70851bd7638e003b81a44a9b901feae/requests-kerberos-0.12.0.tar.gz
 Summary  : A Kerberos authentication handler for python-requests
 Group    : Development/Tools
 License  : ISC
-Requires: requests-kerberos-python3
-Requires: requests-kerberos-license
-Requires: requests-kerberos-python
+Requires: requests-kerberos-license = %{version}-%{release}
+Requires: requests-kerberos-python = %{version}-%{release}
+Requires: requests-kerberos-python3 = %{version}-%{release}
 Requires: cryptography
+Requires: pykerberos
 Requires: requests
 BuildRequires : buildreq-distutils3
 BuildRequires : cryptography
+BuildRequires : pykerberos
 BuildRequires : requests
 
 %description
@@ -33,7 +35,7 @@ license components for the requests-kerberos package.
 %package python
 Summary: python components for the requests-kerberos package.
 Group: Default
-Requires: requests-kerberos-python3
+Requires: requests-kerberos-python3 = %{version}-%{release}
 
 %description python
 python components for the requests-kerberos package.
@@ -56,14 +58,21 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536856139
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1562130898
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %install
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/requests-kerberos
-cp LICENSE %{buildroot}/usr/share/doc/requests-kerberos/LICENSE
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/requests-kerberos
+cp LICENSE %{buildroot}/usr/share/package-licenses/requests-kerberos/LICENSE
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -72,8 +81,8 @@ echo ----[ mark ]----
 %defattr(-,root,root,-)
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/requests-kerberos/LICENSE
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/requests-kerberos/LICENSE
 
 %files python
 %defattr(-,root,root,-)
