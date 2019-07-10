@@ -1,0 +1,55 @@
+From f05852b8cb842521116bfab31bc09835a3d0d568 Mon Sep 17 00:00:00 2001
+From: George T Kramer <george.t.kramer@intel.com>
+Date: Wed, 10 Jul 2019 13:22:24 -0700
+Subject: [PATCH] Switch to kerberos package name
+
+Drop pykerberos as the package name because the kerberos upstream has changed.  Use the kerberos package name instead.  There
+is an open PR on requests-kerberos to change this, but making this
+change early to do the switch.
+---
+ requests_kerberos.egg-info/requires.txt | 2 +-
+ requirements.txt                        | 2 +-
+ setup.py                                | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/requests_kerberos.egg-info/requires.txt b/requests_kerberos.egg-info/requires.txt
+index a34b91f..a18fc57 100644
+--- a/requests_kerberos.egg-info/requires.txt
++++ b/requests_kerberos.egg-info/requires.txt
+@@ -7,7 +7,7 @@ cryptography>=1.3
+ cryptography<2,>=1.3
+ 
+ [:sys_platform!="win32"]
+-pykerberos<2.0.0,>=1.1.8
++kerberos<2.0.0,>=1.1.8
+ 
+ [:sys_platform=="win32"]
+ winkerberos>=0.5.0
+diff --git a/requirements.txt b/requirements.txt
+index c49add0..88ffad6 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1,6 +1,6 @@
+ requests>=1.1.0
+ winkerberos >= 0.5.0; sys.platform == 'win32'
+-pykerberos >= 1.1.8, < 2.0.0; sys.platform != 'win32'
++kerberos >= 1.1.8, < 2.0.0; sys.platform != 'win32'
+ cryptography>=1.3
+ cryptography>=1.3; python_version!="3.3"
+ cryptography>=1.3, <2; python_version=="3.3"
+diff --git a/setup.py b/setup.py
+index 8381ac7..e9b197b 100755
+--- a/setup.py
++++ b/setup.py
+@@ -54,7 +54,7 @@ setup(
+     ],
+     extras_require={
+         ':sys_platform=="win32"': ['winkerberos>=0.5.0'],
+-        ':sys_platform!="win32"': ['pykerberos>=1.1.8,<2.0.0'],
++        ':sys_platform!="win32"': ['kerberos>=1.1.8,<2.0.0'],
+     },
+     test_suite='test_requests_kerberos',
+     tests_require=['mock'],
+-- 
+2.22.0
+
