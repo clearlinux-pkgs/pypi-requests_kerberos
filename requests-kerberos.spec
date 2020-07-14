@@ -4,7 +4,7 @@
 #
 Name     : requests-kerberos
 Version  : 0.12.0
-Release  : 21
+Release  : 22
 URL      : https://files.pythonhosted.org/packages/14/61/85737ebe1e65cd4bf023d9e4610df70851bd7638e003b81a44a9b901feae/requests-kerberos-0.12.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/14/61/85737ebe1e65cd4bf023d9e4610df70851bd7638e003b81a44a9b901feae/requests-kerberos-0.12.0.tar.gz
 Summary  : A Kerberos authentication handler for python-requests
@@ -48,7 +48,7 @@ Group: Default
 Requires: python3-core
 Provides: pypi(requests_kerberos)
 Requires: pypi(cryptography)
-Requires: pypi(pykerberos)
+Requires: pypi(kerberos)
 Requires: pypi(requests)
 
 %description python3
@@ -65,11 +65,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583542795
+export SOURCE_DATE_EPOCH=1594745977
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
