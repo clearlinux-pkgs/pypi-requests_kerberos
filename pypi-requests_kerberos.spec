@@ -4,7 +4,7 @@
 #
 Name     : pypi-requests_kerberos
 Version  : 0.13.0
-Release  : 36
+Release  : 37
 URL      : https://files.pythonhosted.org/packages/eb/dd/028f28d6d810ffbf47899d575f0de315f52f7cc3c28fe542bbb045411a4e/requests-kerberos-0.13.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/eb/dd/028f28d6d810ffbf47899d575f0de315f52f7cc3c28fe542bbb045411a4e/requests-kerberos-0.13.0.tar.gz
 Summary  : A Kerberos authentication handler for python-requests
@@ -13,10 +13,10 @@ License  : ISC
 Requires: pypi-requests_kerberos-license = %{version}-%{release}
 Requires: pypi-requests_kerberos-python = %{version}-%{release}
 Requires: pypi-requests_kerberos-python3 = %{version}-%{release}
-Requires: kerberos
+Requires: pypi(kerberos)
 BuildRequires : buildreq-distutils3
-BuildRequires : kerberos
 BuildRequires : pypi(cryptography)
+BuildRequires : pypi(kerberos)
 BuildRequires : pypi(pyspnego)
 BuildRequires : pypi(requests)
 
@@ -64,7 +64,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641577839
+export SOURCE_DATE_EPOCH=1641842335
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
