@@ -7,7 +7,7 @@
 #
 Name     : pypi-requests_kerberos
 Version  : 0.14.0
-Release  : 50
+Release  : 51
 URL      : https://files.pythonhosted.org/packages/3d/ca/cad727db9eaae0db743982a8197c8a58cc85ed142354abfade1567ede9dc/requests-kerberos-0.14.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/3d/ca/cad727db9eaae0db743982a8197c8a58cc85ed142354abfade1567ede9dc/requests-kerberos-0.14.0.tar.gz
 Summary  : A Kerberos authentication handler for python-requests
@@ -52,7 +52,9 @@ Summary: python3 components for the pypi-requests_kerberos package.
 Group: Default
 Requires: python3-core
 Requires: pypi(cryptography)
+Requires: pypi(pyspnego)
 Requires: pypi(requests)
+Provides: pypi(requests_kerberos)
 
 %description python3
 python3 components for the pypi-requests_kerberos package.
@@ -70,7 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1707137652
+export SOURCE_DATE_EPOCH=1707154689
 export GCC_IGNORE_WERROR=1
 CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
