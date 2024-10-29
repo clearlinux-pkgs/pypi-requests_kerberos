@@ -7,7 +7,7 @@
 #
 Name     : pypi-requests_kerberos
 Version  : 0.15.0
-Release  : 52
+Release  : 53
 URL      : https://files.pythonhosted.org/packages/63/78/bedf4c6788a4502f8c8b6485a9a00b3006aaed34ebbccecc1b2265a3bc9f/requests_kerberos-0.15.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/63/78/bedf4c6788a4502f8c8b6485a9a00b3006aaed34ebbccecc1b2265a3bc9f/requests_kerberos-0.15.0.tar.gz
 Summary  : A Kerberos authentication handler for python-requests
